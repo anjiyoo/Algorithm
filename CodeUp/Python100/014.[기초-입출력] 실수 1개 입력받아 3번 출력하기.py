@@ -1,5 +1,5 @@
 a = input()
 
-pring(a)
-pring(a)
-pring(a)
+print(a)
+print(a)
+print(a)
