@@ -1,15 +1,21 @@
-def dfs(s):   
-    for i in range(n):
-        if visited[i] == '0' and graph_list[s][i] == 1:
-            visited[i] = '1'    
-            dfs(i)  
+import sys
+input = sys.stdin.readline
+
+def dfs(num):
+    for i in graph[num]:
+        if visited[i] == 0: 
+            visited[i] = 1 
+            dfs(i)
 
 n = int(input())
-graph_list = []
+graph = [[] for i in range(n)]
 for i in range(n):
-    graph_list.append(list(map(int,input().split())))   
-
+    nums = list(map(int,input().rstrip().split()))
+    for j in range(n):
+        if nums[j] == 1: 
+            graph[i].append(j) 
+            
 for i in range(n):
-    visited = ['0' for _ in range(n)]  
-    dfs(i)
-    print(' '.join(visited))   
+    visited = [0 for i in range(n)]  
+    dfs(i) 
+    print(*visited)
